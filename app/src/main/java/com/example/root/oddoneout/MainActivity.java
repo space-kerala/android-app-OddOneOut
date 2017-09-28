@@ -1,9 +1,7 @@
 package com.example.root.oddoneout;
 
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.transition.AutoTransition;
 import android.support.transition.Scene;
 import android.support.transition.Transition;
@@ -37,26 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Preparing a root container
         rootContainer = (ViewGroup) findViewById(R.id.rootContainer);
 
-
-        // transitionMgr = TransitionInflater.from(this).inflateTransition(R.transition.transition);
-
-
         //referencing scenes created in xml
         scene1 = Scene.getSceneForLayout(rootContainer, R.layout.scene1_layout, this);
         scene2 = Scene.getSceneForLayout(rootContainer, R.layout.scene2_layout, this);
         scene3 = Scene.getSceneForLayout(rootContainer, R.layout.scene3_layout, this);
-
-
 
         transition = new AutoTransition();
         transition.setDuration(500);
         transition.setInterpolator(new LinearInterpolator());
 
         setCurrentScene();
-
-        //Entering scene
+        //entering scene1
         scene1.enter();
-
 
         rightVoice = MediaPlayer.create(this, R.raw.correct);
         wrongVoice = MediaPlayer.create(this, R.raw.wrong);
@@ -72,41 +62,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.imageButton_tux:
 
-                if (currentScene == 1) {
-                    rightVoice.start();
-                    rightVoice.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-                        @Override
-                        public void onCompletion(MediaPlayer mediaPlayer) {
-                            //TransitionManager.go(scene2, transitionMgr);
-                            TransitionManager.go(scene2, transition);
-
-                        }
-                    });
-
-                }
+                changeToScene(scene2);
                 break;
-
 
             case R.id.imageButton_plant:
 
-                if (currentScene == 2) {
-                    rightVoice.start();
-                    rightVoice.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                        @Override
-                        public void onCompletion(MediaPlayer mediaPlayer) {
-                            //TransitionManager.go(scene3, transitionMgr);
-                            TransitionManager.go(scene3, transition);
-                        }
-
-                    });
-                }
+                changeToScene(scene3);
                 break;
 
             case R.id.back_id2:
 
-                //TransitionManager.go(scene1, transitionMgr);
                 TransitionManager.go(scene1, transition);
                 break;
 
@@ -143,4 +108,22 @@ private void setCurrentScene(){
     });
 
 }
+
+
+private void changeToScene( final Scene scene)   {
+
+
+    rightVoice.start();
+    rightVoice.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+
+            TransitionManager.go(scene, transition);
+        }
+
+    });
+
+}
+
 }
