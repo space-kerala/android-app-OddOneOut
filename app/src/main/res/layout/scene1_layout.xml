@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.root.oddoneout.MainActivity"
+    tools:targetApi="ice_cream_sandwich"
+    android:layout_row="2"
+    android:columnCount="2"
+    android:background="@drawable/b3"
+    android:animateLayoutChanges="false">
+
+
+
+
+    <ImageButton
+        app:srcCompat="@drawable/biriyanixml"
+        android:id="@+id/imageButton_biriyani"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/biriyani"
+        android:onClick="onClick" />
+
+    <ImageButton
+        app:srcCompat="@drawable/idiyappamxml"
+        android:layout_toRightOf="@+id/imageButton_biriyani"
+        android:layout_toEndOf="@+id/imageButton_biriyani"
+        android:id="@+id/imageButton_iddiyapam"
+        android:layout_alignBottom="@+id/imageButton_biriyani"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_height="150dp"
+        android:layout_width="150dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/idiyappam"
+        android:onClick="onClick" />
+
+
+    <ImageButton
+        android:src="@drawable/tuxxml"
+        android:id="@+id/imageButton_table"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onClick"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/tux1"
+        />
+
+    <ImageButton
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/poorixml"
+        android:id="@+id/imageButton_poori"
+        android:layout_alignTop="@+id/imageButton_speak"
+        android:layout_alignLeft="@+id/imageButton_iddiyapam"
+        android:layout_alignStart="@+id/imageButton_iddiyapam"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/poori"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:onClick="onClick" />
+
+
+</GridLayout>
+

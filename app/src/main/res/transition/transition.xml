@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="sequential">
+    <fade
+        android:duration="1000"
+        android:fadingMode="fade_in">
+        <targets>
+            <target android:targetId="@id/imageButton_bear" />
+            <target android:targetId="@id/imageButton_biriyani" />
+            <target android:targetId="@id/imageButton_chair" />
+            <target android:targetId="@id/imageButton_frog" />
+            <target android:targetId="@id/imageButton_iddiyapam" />
+            <target android:targetId="@id/imageButton_plant" />
+            <target android:targetId="@id/imageButton_jaguar" />
+            <target android:targetId="@id/imageButton_lion" />
+            <target android:targetId="@id/imageButton_poori" />
+            <target android:targetId="@id/imageButton_shelf" />
+            <target android:targetId="@id/imageButton_tux" />
+            <target android:targetId="@id/imageButton_table" />
+            <target android:targetId="@id/imageButton_jaguar" />
+        </targets>
+
+    </fade>
+
+
+    <changeBounds
+        android:duration="2000"
+        android:interpolator="@android:anim/bounce_interpolator">
+    </changeBounds>
+</transitionSet>
