@@ -7,7 +7,6 @@ import android.support.transition.Scene;
 import android.support.transition.Transition;
 import android.support.transition.TransitionManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewGroup rootContainer;
-    private Scene scene1, scene2, scene3;
+    private Scene scene1, scene2, scene3,scene4;
     private TransitionManager transitionMgr;
     private Transition transition;
 
@@ -48,10 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scene1 = Scene.getSceneForLayout(rootContainer, R.layout.scene1_layout, this);
         scene2 = Scene.getSceneForLayout(rootContainer, R.layout.scene2_layout, this);
         scene3 = Scene.getSceneForLayout(rootContainer, R.layout.scene3_layout, this);
+        scene4 = Scene.getSceneForLayout(rootContainer, R.layout.scene4_layout, this);
 
         list.add(scene1);
         list.add(scene2);
         list.add(scene3);
+        list.add(scene4);
 
         transition = new AutoTransition();
         transition.setDuration(500);
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        //Toast.makeText(MainActivity.this,view.getRootView().toString(),Toast.LENGTH_LONG).show();
 
         switch (view.getId()) {
             case R.id.imageButton_tux:
@@ -93,6 +93,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     wrongVoice.start();
                 }
                 break;
+            case R.id.imageButton_apple:
+
+                if(currentScene==3) {
+
+                    changeToScene(scene4);
+                }
+                else {
+                    wrongVoice.start();
+                }
+                break;
+
 
             case R.id.imageButton_inback:
 
@@ -125,6 +136,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 currentScene = 3;
             }
         });
+        scene4.setEnterAction(new Runnable() {
+            @Override
+            public void run() {
+                currentScene = 4;
+            }
+        });
 
     }
 
@@ -147,12 +164,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void backToScene() {
 
-
         int index= currentScene-2;
-
-        Log.d("tagnnnn",Integer.toString(index));
         TransitionManager.go(list.get(index),transition);
-
 
     }
 
