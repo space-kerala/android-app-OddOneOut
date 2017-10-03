@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MediaPlayer rightVoice, wrongVoice;
     private int currentScene;
 
-    ArrayList<Scene> list ;
+    private ArrayList<Scene> list ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else {
                     wrongVoice.start();
                 }
-                               
+
                 break;
 
             case R.id.imageButton_plant:
