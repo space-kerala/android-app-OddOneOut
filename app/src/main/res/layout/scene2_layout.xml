@@ -57,12 +57,7 @@
         android:background="@android:color/transparent"
         android:onClick="onClick" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/back2"
-        android:id="@+id/back_id"
-        android:background="@android:color/transparent" />
+
 
     <ImageButton
         app:srcCompat="@drawable/plantxml"
@@ -76,6 +71,14 @@
         android:layout_row="0"
         android:layout_column="0"
         android:onClick="onClick" />
+    <include
+        android:id="@+id/includeback"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        layout="@layout/back_layout"
+        android:layout_row="3"
+        android:layout_column="0"
+        />
 
 
 </GridLayout>
